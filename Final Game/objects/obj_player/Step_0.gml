@@ -44,3 +44,11 @@ if (place_meeting(x, y, obj_controller.is_shadow ? obj_ground_shadow : obj_groun
         }
     }
 }
+
+if (place_meeting(x, y, obj_key)) {
+    if (obj_key.visible) {
+        has_key = true;
+        with (obj_key) instance_destroy();
+    }
+}
+
