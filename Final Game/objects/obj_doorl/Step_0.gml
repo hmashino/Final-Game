@@ -1,29 +1,4 @@
 
-//if (!obj_controller.is_shadow) {
-//    visible = true;           
-//    solid = true;            
-//    mask_index = spr_key;   
-//} else {
-//    visible = false;          
-//    solid = false;            
-//    mask_index = -1;          
-//}
-
-//if (!obj_controller.is_shadow) {
-//    if (place_meeting(x, y, obj_player)) {
-//        if (!door_open) {
-//            if (obj_player.has_key) {
-//                image_index = 1;
-//                solid = false;  
-//                door_open = true;
-//            }
-//        }
-//    }
-//} else {
-//    solid = false;
-//    image_index = 0; 
-//}
-
 if (!obj_controller.is_shadow) {
     visible = true;
     mask_index = spr_key;
@@ -43,4 +18,13 @@ if (!obj_controller.is_shadow) {
 
 if (door_open && place_meeting(x, y, obj_player)) {
     room_goto(Room2); 
+}
+
+if (global.crystal1_count >= global.crystal1_required &&
+    global.crystal2_count >= global.crystal2_required &&
+    global.crystal3_count >= global.crystal3_required) {
+    
+    door_open = true;
+    image_index = 1;
+    solid = false;
 }
