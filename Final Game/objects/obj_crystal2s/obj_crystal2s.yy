@@ -1,10 +1,10 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_crystal3",
+  "name": "obj_crystal2s",
   "spriteId": {
-    "name": "spr_crystal3",
-    "path": "sprites/spr_crystal3/spr_crystal3.yy",
+    "name": "spr_crystal2",
+    "path": "sprites/spr_crystal2/spr_crystal2.yy",
   },
   "solid": false,
   "visible": true,
