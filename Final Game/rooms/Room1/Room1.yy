@@ -27,6 +27,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_470E66C2","properties":[],"isDnd":false,"objectId":{"name":"obj_crystal2s","path":"objects/obj_crystal2s/obj_crystal2s.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1152.0,"y":288.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2E31FF0C","properties":[],"isDnd":false,"objectId":{"name":"obj_crystal3s","path":"objects/obj_crystal3s/obj_crystal3s.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1184.0,"y":288.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5E1ABB18","properties":[],"isDnd":false,"objectId":{"name":"obj_crystal3","path":"objects/obj_crystal3/obj_crystal3.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":1216.0,"y":288.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3EE63BF0","properties":[],"isDnd":false,"objectId":{"name":"obj_button1","path":"objects/obj_button1/obj_button1.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":160.0,"y":320.0,},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"shadowground","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_12BC116F","properties":[],"isDnd":false,"objectId":{"name":"obj_ground_shadow","path":"objects/obj_ground_shadow/obj_ground_shadow.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":12.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":0.0,},
@@ -166,6 +167,7 @@
     {"name":"inst_470E66C2","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_2E31FF0C","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_5E1ABB18","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_3EE63BF0","path":"rooms/Room1/Room1.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

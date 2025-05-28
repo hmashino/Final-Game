@@ -7,8 +7,9 @@ if (obj_player.has_key) {
 var base_x = 1250;
 var base_y = 30;
 var icon_size = 32;
-var spacing = 40;
+var spacing = 35;
 
+draw_sprite(spr_signboard, 0,base_x - 10,base_y - 7)
 
 draw_sprite(spr_crystal1, 0, base_x, base_y + spacing * 0);
 draw_text(base_x + icon_size + 8, base_y + spacing * 0 + 8, string(global.crystal1_count)+ " / " + string(global.crystal1_required));

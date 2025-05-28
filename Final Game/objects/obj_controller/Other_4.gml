@@ -6,9 +6,9 @@ switch (room) {
         break;
         
     case Room2:
-        global.crystal1_required = 0;
+        global.crystal1_required = 1;
         global.crystal2_required = 1;
-        global.crystal3_required = 0;
+        global.crystal3_required = 1;
         break;
         
     case Room3:
