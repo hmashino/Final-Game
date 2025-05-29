@@ -1,3 +1,10 @@
+if(!global.activate2){
+visible = false
+exit;
+} else{
+
+
+
 if (!obj_controller.is_shadow) {
     
     visible = false;
@@ -5,8 +12,6 @@ if (!obj_controller.is_shadow) {
 } else {
     visible = true;
 }
-
-
 
 if (warp_cooldown > 0) {
     warp_cooldown -= 1;
@@ -50,4 +55,5 @@ if (expanding) {
     if (scale_x >= 1 && scale_y >= 1) {
         expanding = false;
     }
+}
 }

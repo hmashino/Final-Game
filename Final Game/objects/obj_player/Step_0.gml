@@ -52,3 +52,13 @@ if (place_meeting(x, y, obj_key)) {
     }
 }
 
+if (place_meeting(x, y, obj_controller.is_shadow ? obj_barrier : obj_barrier)) {
+    repeat (8) {
+        if (place_meeting(x, y, obj_controller.is_shadow ? obj_barrier : obj_barrier)) {
+            x -= 1;
+			y += 10;
+        } else {
+            break;
+        }
+    }
+}
