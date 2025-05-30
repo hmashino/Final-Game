@@ -18,7 +18,7 @@ if (!obj_controller.is_shadow) {
 }
 
 if (door_open && place_meeting(x, y, obj_player)) {
-    room_goto(Room2); 
+    room_goto(Room4); 
 }
 
 if (global.crystal1_count >= global.crystal1_required &&

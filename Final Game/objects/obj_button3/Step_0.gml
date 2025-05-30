@@ -1,10 +1,8 @@
 
-if (obj_controller.is_shadow && global.activate3) {
-    visible = true;
+if (!obj_controller.is_shadow) {
     mask_index = spr_key;
     solid = !switch_pressed;
 } else {
-    visible = false;
     solid = false;
     mask_index = -1;
     image_index = 1;
@@ -15,8 +13,8 @@ if (place_meeting(x,y,obj_player)) {
     switch_pressed = true;
     image_index = 0;
     solid = false;
-	global.activate2 = true
+	global.activate3 = true
 }
-if (global.activate2){
+if (global.activate3){
 image_index = 0;
 }
