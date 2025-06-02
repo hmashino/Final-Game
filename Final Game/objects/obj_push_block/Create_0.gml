@@ -1,6 +1,4 @@
 target_x = x;
-target_y = y;
+vspeed = 0;
 moving = false;
-move_speed = 4;
 cooldown = 0;
-solid = true;

@@ -1,25 +1,38 @@
 if (obj_controller.is_shadow) {
-    
     visible = false;
     exit;
 } else {
     visible = true;
 }
 
-var move_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
-var move_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
+
+if (!variable_instance_exists(id, "target_x")) target_x = x;
+if (!variable_instance_exists(id, "moving")) moving = false;
 
 
-if (cooldown <= 0 && place_meeting(x, y, obj_player)) {
-    var dir_x = move_right - move_left;
+var player_on_top = false;
+with (obj_player) {
+    if (bbox_bottom <= other.bbox_top + 2 &&
+        bbox_right > other.bbox_left &&
+        bbox_left < other.bbox_right &&
+        place_meeting(x, y + 1, other)) {
+        player_on_top = true;
+    }
+}
 
-    if (dir_x != 0) {
-        var check_x = x + dir_x * 32;
-        var check_y = y;
 
-        if (!place_meeting(check_x, check_y, obj_ground_light)) {
-            target_x = check_x;
-            target_y = check_y;
+if (!moving && !player_on_top) {
+
+    if (place_meeting(x - 1, y, obj_player)) {
+        if (!place_meeting(x + 32, y, obj_ground_light)) {
+            target_x = x + 32;
+            moving = true;
+        }
+    }
+
+    else if (place_meeting(x + 1, y, obj_player)) {
+        if (!place_meeting(x - 32, y, obj_ground_light)) {
+            target_x = x - 32;
             moving = true;
         }
     }
@@ -27,27 +40,25 @@ if (cooldown <= 0 && place_meeting(x, y, obj_player)) {
 
 
 if (moving) {
+    var speed1 = 2;
 
-var speed1 = 4;
-
-
-    if (x < target_x) {
-        x = min(x + speed1, target_x);
-    } else if (x > target_x) {
-        x = max(x - speed1, target_x);
-    }
-
-
-    if (x == target_x) {
+    if (abs(x - target_x) <= speed1) {
+        x = target_x;
         moving = false;
-        cooldown = 10;
+    } else {
+        x += sign(target_x - x) * speed1;
     }
 }
+
 
 if (!place_meeting(x, y + 1, obj_ground_light)) {
     y += 4;
 }
 
-if (cooldown > 0) {
-    cooldown -= 1;
+
+if (player_on_top) {
+    with (obj_player) {
+        y = other.y - sprite_height;
+        vspeed = 0;
+    }
 }

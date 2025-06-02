@@ -1,3 +1,14 @@
+if (obj_controller.is_shadow) {
+    grv = -0.2;
+    jmp = 4;
+	gravity_flipped = true;
+}else {
+grv = 0.2;
+jmp = -4;
+gravity_flipped = false
+}
+image_yscale = gravity_flipped ? -0.5 : 0.5;
+
 var jump_pressed = keyboard_check_pressed(vk_space) || keyboard_check(ord("W")) || keyboard_check(vk_up); 
 var move_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
 var move_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
@@ -14,6 +25,11 @@ hsp = move_right - move_left;
 vsp += grv;
 
 if (place_meeting(x, y + 1, ground_1)) {
+    if (jump_pressed) {
+        vsp = jmp;
+    }
+}
+if (place_meeting(x, y - 1, ground_1)) {
     if (jump_pressed) {
         vsp = jmp;
     }
