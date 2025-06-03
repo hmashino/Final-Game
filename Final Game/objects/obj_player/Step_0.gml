@@ -1,3 +1,5 @@
+if (!active) exit;
+
 var jump_pressed = keyboard_check_pressed(vk_space) || keyboard_check(ord("W")) || keyboard_check(vk_up); 
 var move_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
 var move_left = keyboard_check(vk_left) || keyboard_check(ord("A"));
@@ -19,11 +21,7 @@ if (place_meeting(x, y + 1, ground_1)) {
     }
 }
 
-if (place_meeting(x, y + 1, obj_push_block)) {
-    if (jump_pressed) {
-        vsp = jmp;
-    }
-}
+
 
 if (place_meeting(x + hsp * 4, y, ground_1)) {
     while (!place_meeting(x + sign(hsp), y, ground_1)) {
@@ -41,6 +39,12 @@ if (place_meeting(x, y + vsp, ground_1)) {
 }
 y += vsp;
 
+if(!obj_controller.is_shadow){
+	if (place_meeting(x, y + 1, obj_push_block)) {
+    if (jump_pressed) {
+        vsp = jmp;
+    }
+}
 if (place_meeting(x, y + vsp, obj_push_block)) {
     while (!place_meeting(x, y + sign(vsp), obj_push_block)) {
         y += sign(vsp);
@@ -53,6 +57,25 @@ if (place_meeting(x, y + vsp, obj_push_block)) {
         y += sign(vsp);
     }
     vsp = 0;
+}
+var dir = move_right - move_left;
+if (dir != 0) {
+    var check_x = x + dir;
+    var check_y = y;
+    
+
+    var block = instance_place(check_x, check_y, obj_push_block);
+    if (block != noone) {
+
+        var target_x = block.x + dir * 32;
+        var can_move = !position_meeting(target_x, block.y, obj_ground_light);
+
+
+        if (!can_move) {
+            x -= dir;
+        }
+    }
+}
 }
 
 if (place_meeting(x, y, obj_controller.is_shadow ? obj_ground_shadow : obj_ground_light)) {
@@ -83,21 +106,5 @@ if (place_meeting(x, y, obj_controller.is_shadow ? obj_barrier : obj_barrier)) {
     }
 }
 
-var dir = keyboard_check(vk_right) - keyboard_check(vk_left);
-if (dir != 0) {
-    var check_x = x + dir;
-    var check_y = y;
-    
-
-    var block = instance_place(check_x, check_y, obj_push_block);
-    if (block != noone) {
-
-        var target_x = block.x + dir * 32;
-        var can_move = !position_meeting(target_x, block.y, obj_ground_light);
 
 
-        if (!can_move) {
-            x -= dir;
-        }
-    }
-}

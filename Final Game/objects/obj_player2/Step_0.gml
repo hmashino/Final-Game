@@ -1,3 +1,5 @@
+if (!active) exit;
+
 if (obj_controller.is_shadow) {
     grv = -0.2;
     jmp = 4;
@@ -35,11 +37,6 @@ if (place_meeting(x, y - 1, ground_1)) {
     }
 }
 
-if (place_meeting(x, y + 1, obj_push_block)) {
-    if (jump_pressed) {
-        vsp = jmp;
-    }
-}
 
 if (place_meeting(x + hsp * 4, y, ground_1)) {
     while (!place_meeting(x + sign(hsp), y, ground_1)) {
@@ -57,29 +54,31 @@ if (place_meeting(x, y + vsp, ground_1)) {
 }
 y += vsp;
 
-if (place_meeting(x, y + vsp, obj_push_block)) {
-    while (!place_meeting(x, y + sign(vsp), obj_push_block)) {
-        y += sign(vsp);
-    }
-    vsp = 0;
-}
 
-if (place_meeting(x, y + vsp, obj_push_block)) {
-    while (!place_meeting(x, y + sign(vsp),obj_push_block)) {
-        y += sign(vsp);
-    }
-    vsp = 0;
-}
-
-if (place_meeting(x, y, obj_controller.is_shadow ? obj_ground_shadow : obj_ground_light)) {
+if(!obj_controller.is_shadow){
+if (place_meeting(x, y, obj_ground_light)) {
     repeat (8) {
-        if (place_meeting(x, y, obj_controller.is_shadow ? obj_ground_shadow : obj_ground_light)) {
+        if (place_meeting(x, y, obj_ground_light)) {
             y -= 1;
         } else {
             break;
         }
     }
 }
+}else{
+if (place_meeting(x, y, obj_ground_shadow)) {
+    repeat (8) {
+        if (place_meeting(x, y, obj_ground_shadow)) {
+            y += 1;
+        } else {
+            break;
+        }
+    }
+}
+}
+
+
+
 
 if (place_meeting(x, y, obj_key)) {
     if (obj_key.visible) {
@@ -99,7 +98,27 @@ if (place_meeting(x, y, obj_controller.is_shadow ? obj_barrier : obj_barrier)) {
     }
 }
 
-var dir = keyboard_check(vk_right) - keyboard_check(vk_left);
+
+if(!obj_controller.is_shadow){
+	if (place_meeting(x, y + 1, obj_push_block)) {
+    if (jump_pressed) {
+        vsp = jmp;
+    }
+}
+if (place_meeting(x, y + vsp, obj_push_block)) {
+    while (!place_meeting(x, y + sign(vsp), obj_push_block)) {
+        y += sign(vsp);
+    }
+    vsp = 0;
+}
+
+if (place_meeting(x, y + vsp, obj_push_block)) {
+    while (!place_meeting(x, y + sign(vsp),obj_push_block)) {
+        y += sign(vsp);
+    }
+    vsp = 0;
+}
+var dir = move_right - move_left;
 if (dir != 0) {
     var check_x = x + dir;
     var check_y = y;
@@ -116,4 +135,5 @@ if (dir != 0) {
             x -= dir;
         }
     }
+}
 }

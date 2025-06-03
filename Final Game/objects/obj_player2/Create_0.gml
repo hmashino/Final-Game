@@ -4,3 +4,4 @@ grv = 0.2;
 jmp = -4;
 has_key = false;
 gravity_flipped = false
+active = false;

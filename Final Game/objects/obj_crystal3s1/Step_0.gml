@@ -1,4 +1,4 @@
-if (!global.activate4){
+if (!global.activate6){
 visible=false
 exit;
 } else {

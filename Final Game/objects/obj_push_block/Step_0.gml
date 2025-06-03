@@ -11,7 +11,7 @@ if (!variable_instance_exists(id, "moving")) moving = false;
 
 
 var player_on_top = false;
-with (obj_player) {
+with (obj_player_parent) {
     if (bbox_bottom <= other.bbox_top + 2 &&
         bbox_right > other.bbox_left &&
         bbox_left < other.bbox_right &&
@@ -23,14 +23,14 @@ with (obj_player) {
 
 if (!moving && !player_on_top) {
 
-    if (place_meeting(x - 1, y, obj_player)) {
+    if (place_meeting(x - 1, y, obj_player_parent)) {
         if (!place_meeting(x + 32, y, obj_ground_light)) {
             target_x = x + 32;
             moving = true;
         }
     }
 
-    else if (place_meeting(x + 1, y, obj_player)) {
+    else if (place_meeting(x + 1, y, obj_player_parent)) {
         if (!place_meeting(x - 32, y, obj_ground_light)) {
             target_x = x - 32;
             moving = true;
@@ -57,7 +57,7 @@ if (!place_meeting(x, y + 1, obj_ground_light)) {
 
 
 if (player_on_top) {
-    with (obj_player) {
+    with (obj_player_parent) {
         y = other.y - sprite_height;
         vspeed = 0;
     }
